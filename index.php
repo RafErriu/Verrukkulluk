@@ -10,9 +10,11 @@ $db = new database();
 
 $artikel = new artikel($db);
 
-$data = $artikel->ophalenArtikel(31);
+$user = new user($db);
+
+$data = $user->ophalenUser(5);
 
 echo "<pre>";
-var_dump($data); 
+var_dump($data['gebruikersnaam']); 
 
 ?>
