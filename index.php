@@ -8,6 +8,8 @@ require_once('lib/user.php');
 
 require_once('lib/keukenType.php');
 
+require_once('lib/gerechtinfo.php');
+
 $db = new database();
 
 $artikel = new artikel($db);
@@ -16,9 +18,11 @@ $user = new user($db);
 
 $keukenType = new keukenType($db);
 
-$data = $keukenType->ophalenkeukenType(8);
+$gerecht_info = new gerecht_info($db);
+
+$data = $gerecht_info->ophalenInfoType(20,'F');
 
 echo "<pre>";
-var_dump($data['omschrijving']); 
+var_dump($data['user_id']); 
 
 ?>

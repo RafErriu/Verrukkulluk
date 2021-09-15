@@ -9,7 +9,7 @@ class artikel {
     }
 
     public function ophalenArtikel($artikel_id) {
-        $sql = "SELECT * FROM artikel WHERE id =$artikel_id";
+        $sql = "SELECT * FROM artikel WHERE id = $artikel_id";
         $result = mysqli_query($this->connectie, $sql);
 
         $artikel = mysqli_fetch_array($result, MYSQLI_ASSOC);
