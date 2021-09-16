@@ -15,6 +15,9 @@ class gerecht_info {
     public function ophalenInfoType($recept_id, $record_type) {
 
         $sql = "SELECT * FROM gerecht_info WHERE recept_id = $recept_id AND record_type = '$record_type'";
+            if($record_type == 'O' or $record_type == 'F'){
+
+            }
 
       
         $result = mysqli_query($this-> connectie, $sql);

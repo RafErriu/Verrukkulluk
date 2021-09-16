@@ -2,7 +2,7 @@
 
 class user {
 
-    private $connectiel;
+    private $connectie;
 
     public function __construct($db) {
         $this->connectie = $db->getConnectie();
