@@ -20,7 +20,7 @@ $keukenType = new keukenType($db);
 
 $gerecht_info = new gerecht_info($db);
 
-$data = $gerecht_info->ophalenInfoType(20,'F');
+$data = $gerecht_info->ophalenInfoType(20, "B");
 
 echo "<pre>";
 var_dump($data); 

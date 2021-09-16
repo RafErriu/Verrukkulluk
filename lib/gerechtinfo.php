@@ -33,7 +33,7 @@ class gerecht_info {
 
 
     public function toevoegenFavoriet($recept_id, $user_id) {
-         $sql = "INSERT INTO gerecht_info (recept_id, user_id, record_type) VALUES ($recept_id, $user_id, 'F');";
+         $sql = "INSERT INTO gerecht_info (recept_id, user_id, record_type) VALUES ($recept_id, $user_id, 'F')";
          $result = mysqli_query($this->connectie, $sql);
     }
 }
