@@ -23,6 +23,6 @@ $gerecht_info = new gerecht_info($db);
 $data = $gerecht_info->ophalenInfoType(20,'F');
 
 echo "<pre>";
-var_dump($data['user_id']); 
+var_dump($data); 
 
 ?>
