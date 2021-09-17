@@ -12,15 +12,9 @@ require_once('lib/gerechtinfo.php');
 
 $db = new database();
 
-$artikel = new artikel($db);
-
-$user = new user($db);
-
-$keukenType = new keukenType($db);
-
 $gerecht_info = new gerecht_info($db);
 
-$data = $gerecht_info->ophalenInfoType(20, "B");
+$data = $gerecht_info->verwijderenFavoriet();
 
 echo "<pre>";
 var_dump($data); 
