@@ -22,11 +22,14 @@ class recept {
     }
 
     private function gemiddeldeWaardering($recept_id) {
-        $totaalWaardering = $this->gerecht_info->ophalenWaardering($recept_id);
+        $totaalWaardering = $this->ophalenWaardering($recept_id);
+        $cijfers = array_column($totaalWaardering, 'cijfer');
+        $som = array_sum($cijfers);
+
+        return($som);
     }
 
     public function ophalenRecept($recept_id = null) {
-        
         $recept = [];
         $sql = "SELECT * FROM recept";
         $result = mysqli_query($this->connectie, $sql);
@@ -37,12 +40,14 @@ class recept {
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $id = $row["id"];
             $waardering = $this ->ophalenWaardering($recept_id);
+            $gemiddeldWaardering = $this -> gemiddeldeWaardering($recept_id);
             $favoriet = $this ->ophalenFavoriet($recept_id);
 
             $recept[] = [
                 "id" => $row['id'],
                 "waardering" => $waardering,
                 "favoriet" => $favoriet,
+                'gemiddelde_waardering' => $gemiddeldWaardering,
             ];
         }
         return($recept);
