@@ -22,7 +22,7 @@ $ingredient = new ingredient($db);
 
 $recept = new recept($db);
 
-$data = $recept->ophalenRecept(22);
+$data = $recept->ophalenRecept(24);
 
 echo "<pre>";
 var_dump($data); 

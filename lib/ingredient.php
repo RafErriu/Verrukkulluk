@@ -22,6 +22,8 @@ class ingredient{
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             $artikel = $this->ophalenArtikel($row['artikel_id']);
             $ingredient[] = $row;
+            var_dump($artikel);
+
 
         }
         return($ingredient);
