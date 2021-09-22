@@ -29,7 +29,6 @@ class gerecht_info {
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){      
             if($record_type == 'O' || $record_type == 'F'){
                $user = $this->ophalenUser_Gerecht($row['user_id']);
-               echo $user;
 
             }
             $gerecht_info[] = $row;

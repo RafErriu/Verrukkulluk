@@ -16,13 +16,15 @@ require_once('lib/recept.php');
 
 $db = new database();
 
+$artikel = new artikel($db);
+
 $gerecht_info = new gerecht_info($db);
 
 $ingredient = new ingredient($db);
 
 $recept = new recept($db);
 
-$data = $recept->ophalenRecept(22);
+$data = $recept->ophalenRecept(20);
 
 echo "<pre>";
 var_dump($data); 
