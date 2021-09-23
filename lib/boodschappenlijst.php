@@ -29,13 +29,13 @@ class boodschappen {
         $ingredienten = $this->ingredient->ophalenIngredient($recept_id);        
         foreach($ingredienten as $ingredient) {
 
-            $row = $this->artikelOpLijst($ingredient['artikel_id'], $user_id);
+            $boodschap = $this->artikelOpLijst($ingredient['artikel_id'], $user_id);
             
-            if($row) {
-                $this->bijwerkenArtikel($ingredient, $user_id, $row);
+            if($boodschap) {
+                $this->bijwerkenArtikel($ingredient, $user_id, $boodschap);
                 echo "Artikel is bijgewerkt";            
             } else {
-                $this->toevoegenArtikel($ingredient, $user_id);
+                $this->toevoegenArtikel($ingredient, $user_id,);
                 echo "Artikel is toegevoegd";
             }
         }
@@ -53,23 +53,34 @@ class boodschappen {
     }
 
 
-    private function bijwerkenArtikel($artikel_id, $user_id) {
-        $sql = "SELECT * FROM boodschappen WHERE artikel_id = $artikel_id AND user_id = $user_id";
-        $result = mysqli_query($this->connectie, $sql);
-       
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $aantal = $row['aantal'];
-        $aantal = $aantal + 1;
+    private function bijwerkenArtikel($artikel, $user_id, $boodschap) {
+     
+        $boodschap_id = $boodschap["id"];
+        $aantal = $boodschap['aantal'];
+        $verpakking = $artikel["verpakking"];
+        $hoeveelheid = $artikel["hoeveelheid"];
 
-        $sql = "UPDATE boodschappen SET aantal = $aantal WHERE artikel_id = $artikel_id AND user_id = $user_id";
+        $totaalVerpakkingen = ceil($hoeveelheid / $verpakking);
+
+        $sql = "UPDATE boodschappen SET aantal = $totaalVerpakkingen WHERE id= $boodschap_id";
         $result = mysqli_query($this->connectie, $sql);
 
     }
-    private function toevoegenArtikel($artikel_id, $user_id) {
+    private function toevoegenArtikel($artikel, $user_id) {
         
-        $aantal = +1;
+        $verpakking = $artikel['verpakking'];
+        $hoeveelheid = $artikel['hoeveelheid'];
+        $artikel_id = $artikel['artikel_id'];
 
-        $sql = "INSERT INTO boodschappen(artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, $aantal)";
+        $totaalVerpakkingen = ceil($hoeveelheid / $verpakking);
+
+        $sql = "INSERT INTO boodschappen(artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, $totaalVerpakkingen)";
+        $result = mysqli_query($this->connectie, $sql);
+
+    }
+
+    public function verwijderenArtikel($user_id) {
+        $sql = "DELETE FROM boodschappen WHERE user_id = $user_id";
         $result = mysqli_query($this->connectie, $sql);
 
     }
