@@ -24,12 +24,13 @@ class ingredient{
         $result = mysqli_query($this->connectie, $sql);
 
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+           
             $artikel = $this->ophalenArtikel_Ing($row['artikel_id']);
             $ingredient[] = [
                 "id" => $row["id"],
+                "artikel_id" => $artikel["id"],
                 "recept_id" => $row["recept_id"],
                 "hoeveelheid" => $row["hoeveelheid"],
-                "artikel_id" => $artikel,
                 "verpakking"=>$artikel["verpakking"],
                 "prijs" =>$artikel["prijs"],
                 "calorie" =>$artikel["calorie"],

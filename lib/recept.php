@@ -22,12 +22,12 @@ class recept {
         }  
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $id = $row["id"];
-            $waardering = $this ->ophalenWaardering($row['id']);
-            $favoriet = $this ->ophalenFavoriet($row['id']);
+            $waarderingen = $this ->ophalenWaarderingen($row['id']);
+            $favorieten = $this ->ophalenFavorieten($row['id']);
             $opmerkingen =$this -> ophalenOpmerkingen($row['id']);
             
-            $bereiding = $this ->ophalenBereiding($row['id']);
-            $ingredientR = $this ->ophalenIngredientR($row['id']);
+            $bereidingen = $this ->ophalenBereidingen($row['id']);
+            $ingredienten = $this ->ophalenIngredienten($row['id']);
             $gemiddeldeW = $this -> gemiddeldeWaardering($row['id']);
             $prijs_totaal = $this -> berekenPrijs($row['id']);
 
@@ -36,13 +36,13 @@ class recept {
 
             $recept = [
                 "id" => $row['id'],
-                "waardering" => $waardering,
-                "favoriet" => $favoriet,
+                "waarderingen" => $waarderingen,
+                "favorieten" => $favorieten,
                 "opmerkingen" => $opmerkingen,
 
-                "bereiding" => $bereiding,
+                "bereidingen" => $bereidingen,
                 'gemiddelde_waardering' => $gemiddeldeW,
-                'ingredient' => $ingredientR,
+                'ingredienten' => $ingredienten,
                 "Prijs_totaal" => $prijs_totaal,
 
                 "Calorie_totaal" => $calorie_totaal,
@@ -53,14 +53,14 @@ class recept {
         return($totaal_recept);
      }
 
-    private function ophalenWaardering($recept_id) {
-        $waardering = $this->gerecht_info->ophalenInfoType($recept_id, 'W');
-            return($waardering);
+    private function ophalenWaarderingen($recept_id) {
+        $waarderingen = $this->gerecht_info->ophalenInfoType($recept_id, 'W');
+            return($waarderingen);
     }
 
-    private function ophalenFavoriet($recept_id) {
-        $favoriet = $this->gerecht_info->ophalenInfoType($recept_id, 'F');
-            return($favoriet);
+    private function ophalenFavorieten($recept_id) {
+        $favorieten = $this->gerecht_info->ophalenInfoType($recept_id, 'F');
+            return($favorieten);
     }
 
     private function ophalenOpmerkingen($recept_id) {
@@ -68,19 +68,19 @@ class recept {
             return($opmerkingen);
     }
 
-    private function ophalenBereiding($recept_id) {
+    private function ophalenBereidingen($recept_id) {
         $bereiding = $this->gerecht_info->ophalenInfoType($recept_id, 'B');
             return($bereiding);
     }
 
-    private function ophalenIngredientR($recept_id) {
-        $ingredientR = $this->ingredient->ophalenIngredient($recept_id);
-             return($ingredientR);
+    private function ophalenIngredienten($recept_id) {
+        $ingredienten = $this->ingredient->ophalenIngredienten($recept_id);
+             return($ingredienten);
     }
 
     private function gemiddeldeWaardering($recept_id) {
-        $totaalWaardering = $this->ophalenWaardering($recept_id);
-        $cijfers = array_column($totaalWaardering, 'cijfer');
+        $totaalWaarderingen = $this->ophalenWaarderingen($recept_id);
+        $cijfers = array_column($totaalWaarderingen, 'cijfer');
         $som = array_sum($cijfers);
 
         if(count($cijfers) > 0) {
@@ -93,11 +93,11 @@ class recept {
     }
 
     private function berekenPrijs($recept_id) {
-        $ingredientR = $this ->ophalenIngredientR($recept_id);
+        $ingredienten = $this ->ophalenIngredienten($recept_id);
 
         $prijs_totaal = 0;
 
-        foreach($ingredientR as $ingredient) {
+        foreach($ingredienten as $ingredient) {
             $totaalVerpakkingen = ceil($ingredient['hoeveelheid'] / $ingredient['verpakking']);
             $prijsIngredient = $totaalVerpakkingen * $ingredient['prijs'];
             $prijs_totaal = $prijs_totaal + $prijsIngredient;               
@@ -107,11 +107,11 @@ class recept {
     }
 
     private function berekenCalorie($recept_id) {
-        $ingredientR = $this ->ophalenIngredientR($recept_id);
+        $ingredienten = $this ->ophalenIngredienten($recept_id);
 
         $calorie_totaal = 0;        
 
-        foreach($ingredientR as $ingredient) {
+        foreach($ingredienten as $ingredient) {
             $totaalVerpakkingen = $ingredient['hoeveelheid'] / $ingredient['verpakking'];
             $calorieIngredient = $totaalVerpakkingen * $ingredient['calorie'];
             $calorie_totaal = $calorie_totaal + $calorieIngredient;
