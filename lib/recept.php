@@ -48,6 +48,8 @@ class recept {
             $prijs_totaal = $this -> berekenPrijs($row['id']);
 
             $calorie_totaal =$this -> berekenCalorie($row['id']);
+            $keuken = $this ->ophalenKeuken($row['keuken_id']);
+            $type = $this ->ophalenType($row['type_id']);
 
 
             $recept = [
@@ -56,6 +58,8 @@ class recept {
                 'Naam' => $row['titel'],
                 'Foto' => $row['foto'],
                 'Omschrijving' => $row['omschrijving'],
+                'Soort_Keuken' => $keuken,
+                'Soort_Type' => $type,
 
                 "waarderingen" => $waarderingen,
                 "favorieten" => $favorieten,
@@ -73,6 +77,16 @@ class recept {
         }
         return($totaal_recept);
      }
+    
+    private function ophalenKeuken($keuken_id) {
+         $keuken = $this->keukenType->ophalenKeukenType($keuken_id);
+         return($keuken);
+     }
+
+    private function ophalenType($type_id) {
+        $type = $this->keukenType -> ophalenKeukenType($type_id);
+        return($type);
+    }
 
     private function ophalenWaarderingen($recept_id) {
         $waarderingen = $this->gerecht_info->ophalenInfoType($recept_id, 'W');
