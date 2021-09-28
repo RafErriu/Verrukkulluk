@@ -12,6 +12,22 @@ class recept {
         $this->ingredient = new ingredient($db);
     }
 
+    public function zoeken($keyword) {
+
+        $recepten = $this ->ophalenRecept();
+        $resultaat = [];
+
+        foreach($recepten as $recept) {
+
+            $text = json_encode($recept);
+                        
+            if(strpos($text, $keyword, 0)) {
+                $resultaat[] = $recept;
+            }
+        }
+    return($resultaat);
+    }
+    
     public function ophalenRecept($recept_id = null) {
         $totaal_recept = [];
         $sql = "SELECT * FROM recept";
@@ -36,6 +52,11 @@ class recept {
 
             $recept = [
                 "id" => $row['id'],
+
+                'Naam' => $row['titel'],
+                'Foto' => $row['foto'],
+                'Omschrijving' => $row['omschrijving'],
+
                 "waarderingen" => $waarderingen,
                 "favorieten" => $favorieten,
                 "opmerkingen" => $opmerkingen,
@@ -74,7 +95,7 @@ class recept {
     }
 
     private function ophalenIngredienten($recept_id) {
-        $ingredienten = $this->ingredient->ophalenIngredienten($recept_id);
+        $ingredienten = $this->ingredient->ophalenIngredient($recept_id);
              return($ingredienten);
     }
 

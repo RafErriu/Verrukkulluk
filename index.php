@@ -1,5 +1,12 @@
 <?php
 
+require_once('vendor/autoload.php');
+
+$loader = new \Twig\Loader\FilesystemLoader("./templates");
+
+$twig = new Twig\Environment($loader, ["debug" => true]);
+$twig -> addExtension (new \Twig\Extension\DebugExtension());
+
 require_once('lib/database.php');
 
 require_once('lib/artikel.php');
@@ -16,21 +23,42 @@ require_once('lib/recept.php');
 
 require_once('lib/boodschappenlijst.php');
 
+require_once('lib/gerecht.php');
+
 $db = new database();
-
-$artikel = new artikel($db);
-
-$gerecht_info = new gerecht_info($db);
-
-$ingredient = new ingredient($db);
 
 $recept = new recept($db);
 
 $boodschappen = new boodschappen($db);
 
-$data = $boodschappen->boodschappenToevoegen(20, 6);
+$gerecht = new gerecht($db);
 
-echo "<pre>";
-var_dump($data); 
+$data = $gerecht->selecteerGerecht();
+
+$gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
+$action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+
+switch($action) {
+
+    case "homepage": {
+        $data = $gerecht->selecteerGerecht();
+        $template = 'homepage.html.twig';
+        $title = "homepage";
+        break;
+    }
+
+    case "detail": {
+        $data = $recept->ophalenGerecht($gerecht_id);
+        $template = 'detail.html.twig';
+        $title = "detail pagina";
+        break;
+    }
+}
+
+$template = $twig->load($template);
+
+echo $template->render(["title" => $title, "data" => $data]);
+
+
 
 ?>

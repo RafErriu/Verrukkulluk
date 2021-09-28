@@ -33,10 +33,10 @@ class boodschappen {
             
             if($boodschap) {
                 $this->bijwerkenArtikel($ingredient, $user_id, $boodschap);
-                echo "Artikel is bijgewerkt";            
+                // echo "Artikel is bijgewerkt";            
             } else {
                 $this->toevoegenArtikel($ingredient, $user_id,);
-                echo "Artikel is toegevoegd";
+                // echo "Artikel is toegevoegd";
             }
         }
     }
@@ -82,7 +82,6 @@ class boodschappen {
     public function verwijderenArtikel($user_id) {
         $sql = "DELETE FROM boodschappen WHERE user_id = $user_id";
         $result = mysqli_query($this->connectie, $sql);
-
     }
     
     
