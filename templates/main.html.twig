@@ -20,8 +20,6 @@
 </html>
 <body>
 <div class="container-fluid">
-
-  <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="carousel slide" id="carousel-35539">
@@ -67,153 +65,89 @@
 		</div>
 	</div>
 
-  <div class="leftbox">
-    <div class="row">
-		<div class="col-md-4">  
-            <div class="agenda">
-			<h3>
-				h3. Lorem ipsum dolor sit amet.
-			</h3>
-			<ul>
-				<li class="list-item">
-					Lorem ipsum dolor sit amet
-				</li>
-				<li class="list-item">
-					Consectetur adipiscing elit
-				</li>
-				<li class="list-item">
-					Integer molestie lorem at massa
-				</li>
-				<li class="list-item">
-					Facilisis in pretium nisl aliquet
-				</li>
-				<li class="list-item">
-					Nulla volutpat aliquam velit
-				</li>
-				<li class="list-item">
-					Faucibus porta lacus fringilla vel
-				</li>
-				<li class="list-item">
-					Aenean sit amet erat nunc
-				</li>
-				<li class="list-item">
-					Eget porttitor lorem
-				</li>
-			</ul>
-        </div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="agenda">
+				<h3>
+					h3. Lorem ipsum dolor sit amet.
+				</h3>
+				<ul>
+					<li class="list-item">
+						Lorem ipsum dolor sit amet
+					</li>
+					<li class="list-item">
+						Consectetur adipiscing elit
+					</li>
+					<li class="list-item">
+						Integer molestie lorem at massa
+					</li>
+					<li class="list-item">
+						Facilisis in pretium nisl aliquet
+					</li>
+					<li class="list-item">
+						Nulla volutpat aliquam velit
+					</li>
+					<li class="list-item">
+						Faucibus porta lacus fringilla vel
+					</li>
+					<li class="list-item">
+						Aenean sit amet erat nunc
+					</li>
+					<li class="list-item">
+						Eget porttitor lorem
+					</li>
+				</ul>
+			</div>
 
 			<form role="form" class="form">
 				<div class="form-group">
-					 
+
 					<label for="exampleInputEmail1">
 						Email address
 					</label>
 					<input type="email" class="form-control" id="exampleInputEmail1">
 				</div>
 				<div class="form-group">
-					 
+
 					<label for="exampleInputPassword1">
 						Password
 					</label>
 					<input type="password" class="form-control" id="exampleInputPassword1">
 				</div>
 				<div class="form-group">
-				</div>
 				<button type="submit" class="btn btn-primary">
 					Submit
 				</button>
+                </div>
 			</form>
-    </div>
-
-        <div class="col-md-8">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg">
-						<div class="card-block">
-							<h5 class="card-title">
-								Card title
-							</h5>
-							<p class="card-text">
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="https://www.layoutit.com/img/sports-q-c-600-200-1.jpg">
-						<div class="card-block">
-							<h5 class="card-title">
-								Card title
-							</h5>
-							<p class="card-text">
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg">
-						<div class="card-block">
-							<h5 class="card-title">
-								Card title
-							</h5>
-							<p class="card-text">
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-4">
-					<div class="card">
-						<img class="card-img-top" alt="Bootstrap Thumbnail Third" src="https://www.layoutit.com/img/sports-q-c-600-200-1.jpg">
-						<div class="card-block">
-							<h5 class="card-title">
-								Card title
-							</h5>
-							<p class="card-text">
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
-							<p>
-								<a class="btn btn-primary" href="#">Action</a> <a class="btn" href="#">Action</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
-	</div>
+    
+
+		{#Hier komt BLock#}
+	<div class="col-md-8"> 
+        {% block content %}
+        {% endblock %}
+	</div> 
+		{#Hier eindigt Block#}
 </div>
 
 <div class="footer">
   <div class="row">
 		<div class="col-md-12">
 			<address>
-				 <strong>Twitter, Inc.</strong><br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br> <abbr title="Phone">P:</abbr> (123) 456-7890
+				<div>
+				 <img src="/assets/verrukkulluk-pay-off.png">
+				 <img alt="logo-footer" src="assets/verrukkulluk-contact.png">
+				</div>
+				 <h1 style="font-size: 100px;">Contact</h1>Verrukkulluk.nl<br>Poststraat 2b<br>Sittard<br>info@verrukkulluk.nl
 			</address>
 		</div>
 	</div>
 </div>
 
-</div>
-</div>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+
+</div>
 </body>

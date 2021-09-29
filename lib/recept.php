@@ -5,11 +5,13 @@ class recept {
     private $connectie;
     private $gerecht_info;
     private $ingredient;
+    private $keukenType;
 
     public function __construct($db) {
         $this->connectie = $db->getConnectie();
         $this->gerecht_info = new gerecht_info($db);
         $this->ingredient = new ingredient($db);
+        $this->keukenType = new keukenType($db);
     }
 
     public function zoeken($keyword) {
@@ -47,17 +49,17 @@ class recept {
             $gemiddeldeW = $this -> gemiddeldeWaardering($row['id']);
             $prijs_totaal = $this -> berekenPrijs($row['id']);
 
-            $calorie_totaal =$this -> berekenCalorie($row['id']);
-            $keuken = $this ->ophalenKeuken($row['keuken_id']);
+            $calorie_totaal = $this -> berekenCalorie($row['id']);
+            $keuken = $this -> ophalenKeuken($row['keuken_id']);
             $type = $this ->ophalenType($row['type_id']);
 
 
             $recept = [
                 "id" => $row['id'],
 
-                'Naam' => $row['titel'],
-                'Foto' => $row['foto'],
-                'Omschrijving' => $row['omschrijving'],
+                'naam' => $row['titel'],
+                'foto' => $row['foto'],
+                'omschrijving' => $row['omschrijving'],
                 'Soort_Keuken' => $keuken,
                 'Soort_Type' => $type,
 
@@ -68,9 +70,9 @@ class recept {
                 "bereidingen" => $bereidingen,
                 'gemiddelde_waardering' => $gemiddeldeW,
                 'ingredienten' => $ingredienten,
-                "Prijs_totaal" => $prijs_totaal,
+                "prijs_totaal" => $prijs_totaal,
 
-                "Calorie_totaal" => $calorie_totaal,
+                "calorie_totaal" => $calorie_totaal,
 
             ];
             $totaal_recept[] = $recept;
@@ -147,7 +149,7 @@ class recept {
         $calorie_totaal = 0;        
 
         foreach($ingredienten as $ingredient) {
-            $totaalVerpakkingen = $ingredient['hoeveelheid'] / $ingredient['verpakking'];
+            $totaalVerpakkingen = ceil($ingredient['hoeveelheid'] / $ingredient['verpakking']);
             $calorieIngredient = $totaalVerpakkingen * $ingredient['calorie'];
             $calorie_totaal = $calorie_totaal + $calorieIngredient;
         }
