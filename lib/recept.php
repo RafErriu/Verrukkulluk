@@ -33,11 +33,15 @@ class recept {
     public function ophalenRecept($recept_id = null) {
         $totaal_recept = [];
         $sql = "SELECT * FROM recept";
-        $result = mysqli_query($this->connectie, $sql);
 
         if(isset($recept_id)) {
-            $sql = " WHERE id = $recept_id";          
-        }  
+            $sql .= " WHERE id = $recept_id";          
+        }
+
+        
+        $result = mysqli_query($this->connectie, $sql);
+
+        
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $id = $row["id"];
             $waarderingen = $this ->ophalenWaarderingen($row['id']);
@@ -57,21 +61,21 @@ class recept {
             $recept = [
                 "id" => $row['id'],
 
-                'naam' => $row['titel'],
+                'titel' => $row['titel'],
                 'foto' => $row['foto'],
                 'omschrijving' => $row['omschrijving'],
-                'Soort_Keuken' => $keuken,
-                'Soort_Type' => $type,
-
-                "waarderingen" => $waarderingen,
-                "favorieten" => $favorieten,
-                "opmerkingen" => $opmerkingen,
+                'uitleg' => $row['uitleg'],
+                'keuken' => $keuken,
+                'type' => $type,
 
                 "bereidingen" => $bereidingen,
+                "opmerkingen" => $opmerkingen,
+                "waarderingen" => $waarderingen,
+                "favorieten" => $favorieten,
+
                 'gemiddelde_waardering' => $gemiddeldeW,
                 'ingredienten' => $ingredienten,
                 "prijs_totaal" => $prijs_totaal,
-
                 "calorie_totaal" => $calorie_totaal,
 
             ];

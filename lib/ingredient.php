@@ -32,6 +32,7 @@ class ingredient{
                 "recept_id" => $row["recept_id"],
                 "verpakking"=>$artikel["verpakking"],
                 
+                "naam"=>$artikel["naam"],
                 "prijs" =>$artikel["prijs"],
                 "calorie" =>$artikel["calorie"],
                 "hoeveelheid" => $row["hoeveelheid"],

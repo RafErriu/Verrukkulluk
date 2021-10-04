@@ -9,10 +9,12 @@ class gerecht_info {
 
     public function __construct($db) {
         $this->connectie = $db->getConnectie();
+        $this->user = new user($db);
     }
 
     private function ophalenUser_Gerecht($user_id) {
-        return($user_id);
+        $userInfo = $this->user->ophalenUser($user_id);
+        return($userInfo);
     }
 
     private function ophalenCijfer($cijfer) {
@@ -29,10 +31,21 @@ class gerecht_info {
         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){      
             if($record_type == 'O' || $record_type == 'F'){
                $user = $this->ophalenUser_Gerecht($row['user_id']);
-
-            }
+               $gerecht_info[] = [
+                   "id" => $row["id"],
+                          
+                   "gebruikersnaam"=>$user["gebruikersnaam"],
+                   "email"=>$user["email"],
+                   "afbeelding"=>$user["afbeelding"],
+               
+                   "recept_id"=>$row["recept_id"],
+                   "record_type"=>$row["record_type"],
+                   "cijfer"=>$row["cijfer"],
+                   "opmerking"=>$row["opmerking"]
+           ];
+            } else {
             $gerecht_info[] = $row;
-
+            } 
         }
         return($gerecht_info);
     }

@@ -19,21 +19,21 @@
 {# Begin Recepten preview #}
 
 <div class="row">
-	{% for record in data %}
+	{% for recept in data %}
 		<div class="col-md-6" style="margin-right: -140px;">
 			<div class="card">
-			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
+			<img class="card-img-top" alt="Thumbnail" src="{{recept.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
 			<div class="card-block">
 
 			<div class="row">
 				<div class="col-md-8">
-					<h1 class="card-title"; style = "color:#6f8723;">
-						{{ record.naam }}
+					<h1 class="card-title";>
+						{{ recept.titel }}
 					</h1>
 				</div>
 				<div class="col-md-4">
 				  {% for i in 1..5 %}
-                            {% if loop.index <= record.gemiddelde_waardering %}
+                            {% if loop.index <= recept.gemiddelde_waardering %}
                            	 <i class="fas fa-star star" data-value="{{loop.index}}"></i>
                             {% else %}
                              <i class="far fa-star star" data-value="{{loop.index}}"></i>
@@ -44,15 +44,15 @@
    				
 
 				<p class="card-text">
-					{{record.omschrijving}}
+					{{recept.omschrijving}}
 				
 				</p>
 
             	<div class="gerechtinfo">
-					<a class="btn btn-primary smullen" href="index.php?action=detailpagina&id={{record.id}}"><h1>Smullen!</h1></a>
+					<a class="btn btn-primary smullen" href="index.php?recept_id={{recept.id}}&action=detailpagina"><h1>Smullen!</h1></a>
 					<i class="fas fa-user-friends fa-lg" style="margin-left: 100px; color: #DC3439"></i><p class="information">4</p>
-                    <i class="fas fa-euro-sign fa-lg" style="margin-left: 5px; color: #DC3439;"></i><p class="information">{{record.prijs_totaal}},-</p>                  
-                    <i class="fas fa-fire-alt fa-lg" style="margin-left: 5px; color: #DC3439;"></i><p class="information">{{record.calorie_totaal}}</p> 
+                    <i class="fas fa-euro-sign fa-lg" style="margin-left: 5px; color: #DC3439;"></i><p class="information">{{recept.prijs_totaal}},-</p>                  
+                    <i class="fas fa-fire-alt fa-lg" style="margin-left: 5px; color: #DC3439;"></i><p class="information">{{recept.calorie_totaal}}</p> 
 				</div>
 
             </div>

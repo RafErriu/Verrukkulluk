@@ -21,13 +21,11 @@ $db = new database();
 $recept = new recept($db);
 $boodschappen = new boodschappen($db);
 $ingredient = new ingredient($db);
+$gerecht_info = new gerecht_info($db);
 //$gerecht = new gerecht($db);
 
-$data = $recept->ophalenRecept();
-
-
-$recept_id = isset($GET['recept_id']) ? $_GET["recept_id"]: "";
-$action = isset($GET["action"]) ? $_GET["action"] : "homepage";
+$recept_id = isset($_GET['recept_id']) ? $_GET["recept_id"]: "";
+$action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 
 switch($action) {
 
@@ -39,8 +37,9 @@ switch($action) {
     }
 
     case "detailpagina": {
+
     
-        $data = $recept->ophalenRecept();
+        $data = $recept->ophalenRecept($recept_id);
         $template = 'detailpagina.html.twig';
         $title = "detailpagina";
         break;

@@ -1,38 +1,95 @@
-
 {# Opnemen van de "Main" file #}
 {% extends "main.html.twig" %}
 
 
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
-    {# Dit is commentaar #}
-<html>
-<head>
-<link href="css/style.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/20c8c8d263.js" crossorigin="anonymous"></script>
-</head>
-</html>
+	{# Loop #}
 
-{# Print #}
+	<div class="row">
+		{% for recept in data %}
+			<div class="col-md-12" style="margin-right: -140px;">
+				<div class="card" style="flex-direction: row; width: 1000px; height: 550px">
+					<img class="card-img-top imagedetail" alt="Thumbnail" src="{{recept.foto}}">
+					<div class="card-block">
+						<div class="detailinfo">
+							<i class="fas fa-user-friends fa-2x" style="margin-left: 30px; color: #DC3439"></i>
+							<p class="information">4</p>
+							<i class="fas fa-euro-sign fa-2x" style="margin-left: 5px; color: #DC3439;"></i>
+							<p class="information">{{recept.prijs_totaal}},-</p>
+							<i class="fas fa-fire-alt fa-2x" style="margin-left: 5px; color: #DC3439;"></i>
+							<p class="information">{{recept.calorie_totaal}}</p>
+						</div>
 
-{# Loop #}
+						<div class="row">
+							<div class="col-md-8">
+								<h1 class="card-title-detail" ;>
+									{{ recept.titel }}
+								</h1>
+							</div>
+							<div class="col-md-4">
+								{% for i in 1..5 %}
+									{% if loop.index <= recept.gemiddelde_waardering %}
+										<i class="fas fa-star stardetail" data-value="{{loop.index}}"></i>
+									{% else %}
+										<i class="far fa-star stardetail" data-value="{{loop.index}}"></i>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</div>
+						<div class="uitleg">
+						{{recept.uitleg}}
+						</div>
+						<div >
+							<button type="submit" class="btn btn-primary oplijst">
+							<h1 style="font-size: 40px;">Op Lijst</h1>
+							</button>
+							<i class="far fa-heart fa-3x heart"></i>
+						</div>
+					</div>
+				</div>
+			</div>
 
-<div class="row">
-		<div class="col-md-12" style="margin-right: -140px;">
-			<div class="card">
-			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
-			<div class="card-block">	
+<div class="col-md-12" style="margin-right: -140px;">
+	<div class="card" style=" width: 1000px; height: 605px">
+		<div class="container">
+			<ul class="nav nav-tabs">
+
+				<li class="active">
+					<h1 class="nav-item pills">
+						<a class="active" data-toggle="tab" href="#ingredienten" style="color:#6f8723">Ingrediënten</a>
+					</h1>
+				</li>
+				<li class="nav-item">
+					<h1 class="pills">
+						<a data-toggle="tab" href="#bereidingswijze" style="color:#6f8723">Bereidingswijze</a>
+					</h1>
+				</li>
+				<li class="nav-item">
+					<h1 class="pills">
+						<a data-toggle="tab" href="#opmerkingen" style="color:#6f8723">Opmerkingen</a>
+					</h1>
+				</li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="ingredienten" class="tab-pane fade show active">
+					<h3>{{recept.verpakking}}</h3>
+					<p>Some content.</p>
+				</div>
+				<div id="bereidingswijze" class="tab-pane fade">
+					<h3>Menu 1</h3>
+					<p>Some content in menu 1.</p>
+				</div>
+				<div id="opmerkingen" class="tab-pane fade">
+					<h3>Menu 2</h3>
+					<p>Some content in menu 2.</p>
+				</div>
+				</div>
+			</div>
 		</div>
-        </div>
-        </div>
-            <div class="col-md-12" style="margin-right: -140px;">
-			<div class="card">
-			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
-			<div class="card-block">    
-        </div>
-        </div>
-        </div>
-   		</div>
-
+	</div>
+{% endfor %}
+</div>
 {% endblock %}
 
