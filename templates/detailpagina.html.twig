@@ -1,0 +1,38 @@
+
+{# Opnemen van de "Main" file #}
+{% extends "main.html.twig" %}
+
+
+{# nu de block content op in de main pagina vullen #}
+{% block content %}
+    {# Dit is commentaar #}
+<html>
+<head>
+<link href="css/style.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/20c8c8d263.js" crossorigin="anonymous"></script>
+</head>
+</html>
+
+{# Print #}
+
+{# Loop #}
+
+<div class="row">
+		<div class="col-md-12" style="margin-right: -140px;">
+			<div class="card">
+			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
+			<div class="card-block">	
+		</div>
+        </div>
+        </div>
+            <div class="col-md-12" style="margin-right: -140px;">
+			<div class="card">
+			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
+			<div class="card-block">    
+        </div>
+        </div>
+        </div>
+   		</div>
+
+{% endblock %}
+

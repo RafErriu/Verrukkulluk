@@ -25,8 +25,7 @@ $ingredient = new ingredient($db);
 
 $data = $recept->ophalenRecept();
 
-//$gerecht_id = isset($_GET["gerecht_id"]) ? $_GET["gerecht_id"] : "";
-//$action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+
 $recept_id = isset($GET['recept_id']) ? $_GET["recept_id"]: "";
 $action = isset($GET["action"]) ? $_GET["action"] : "homepage";
 
@@ -39,10 +38,18 @@ switch($action) {
         break;
     }
 
-    case "detail": {
-        $data = $recept->ophalenRecept($gerecht_id);
-        $template = 'detail.html.twig';
-        $title = "detail pagina";
+    case "detailpagina": {
+    
+        $data = $recept->ophalenRecept();
+        $template = 'detailpagina.html.twig';
+        $title = "detailpagina";
+        break;
+    }
+
+    case "boodschapen": {
+        $data = $recept->ophalenRecept($recept_id);
+        $template = 'boodschappen.html.twig';
+        $title = 'boodschappen';
         break;
     }
 }
@@ -50,7 +57,5 @@ switch($action) {
 $template = $twig->load($template);
 
 echo $template->render(["title" => $title, "data" => $data]);
-
-
 
 ?>

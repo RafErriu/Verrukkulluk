@@ -7,6 +7,93 @@
     height: auto;
 }
 
+.logomenu {
+    z-index: 45;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 80px;
+    width: 320px;
+    height: auto;
+}
+
+.word1 {
+     Display: inline;
+     margin-right: 120px; 
+     font-size: 60px
+}
+
+.word2 {
+    Display: inline;
+    font-size: 60px
+}
+
+.word1:hover, .word2:hover {
+    color: #fce3ba;
+    cursor: pointer;
+}
+
+
+.text {
+    margin-top: 80px;
+   margin-left: 660px;
+   color: #DC3439;  
+}
+
+.menu {
+    margin-left: 175px;
+    height: 250px;
+    width: 1650px;
+    background-color: white;
+    position: absolute;
+    z-index: 40;
+    border: solid 1px ;
+    box-shadow:0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12);
+    display: none;
+}
+
+.form-inline {
+    position: absolute;
+    z-index: 30;
+    border-radius: 40px;
+    margin-left: 1300px;
+    margin-top: 48px;
+ }
+
+ .search input {
+    text-indent: 45px;
+ }
+
+.toggle {
+    position: absolute;
+    margin-left: 70px;
+    margin-bottom: 20px;
+    font-size: 35px;
+    color:  #dd3b40;
+}
+
+.zoekbar {
+    border-radius: 40px;
+    font-size: 20px;
+    box-shadow:0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12);
+    
+}
+
+.dropdown {
+    z-index: 10;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 1700px;
+    width: 450px;
+    height: auto;
+    color: #fca11e;
+    font-size: 60px;
+}
+
+.dropdown:hover {
+    color: #fce3ba;
+    cursor: pointer;
+}
+
 .carousel-item active {
     z-index: -10;
 }
@@ -21,23 +108,6 @@
     border-radius: 50%;
   }
 
-.form-inline {
-    position: absolute;
-     z-index: 30;
-     margin-left: 1400px;
-     margin-top: 40px;
-    }
-
-
-.dropdown {
-    z-index: 10;
-    position: absolute;
-    margin-top: 40px;
-    margin-left: 1700px;
-    width: 450px;
-    height: auto;
-}
-
 .leftbox {
     margin-left: 300px;
     margin-top: 50px;
@@ -45,21 +115,73 @@
 
 .agenda {
     margin-top: 50px;
-    margin-left: 250px;
+    margin-left: 200px;
     background-color: #95B82D;
-    padding-bottom: 100px;
+    padding-bottom: 20px;
+    width: 500px;
+    box-shadow:0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12)
+}
+
+.list {
+    list-style-type: none;
+}
+
+.bullet {
+    color: white;
+    font-size: 48px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.agendapunt {
+    font-weight: 500;
+    margin-top: -20px;
+    margin-left: 80px;
+    padding-right: 100px;
+}
+
+.keuken {
+    font-size: 45px;
 }
 
 .form {
     background-color: #B31714;
-    margin-top: 150px;
+    margin-top: 40px;
+    margin-left: 200px;
+    padding-top:20px;
+    padding-bottom: 20px;
+    width: 500px;
+    box-shadow:0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12)
 }
 
+.form-control {
+    margin-top: -20px;
+    width: 75%;
+    margin-left: 60px;
+    border: none;
+}
 
+.forminfo {
+    margin-left: 60px;
+    color: white;
+}
+
+.login {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 130px; 
+    background-color: #fca11e  !important;
+    border-radius: 40px;
+    width: 250px;
+    height: 60px; 
+    font-size: 200px;
+    border: none;
+    padding: 0px;
+}
 
 .smullen {
     background-color: #DC3439; 
-    border-radius: 30px;
+    border-radius: 40px;
     width: 150px;
     height: 40px; 
     font-size: 40px;
@@ -69,18 +191,76 @@
 
 .card {
     margin-left: 80px;
+    margin-top: 50px; 
+    width: 500px; 
+    padding-bottom: 20px;
+    box-shadow:0 1px 1px rgba(0,0,0,0.12),0 2px 2px rgba(0,0,0,0.12),0 4px 4px rgba(0,0,0,0.12),0 8px 8px rgba(0,0,0,0.12),0 16px 16px rgba(0,0,0,0.12)
+}
+
+
+.card-title {
+    margin-top: 20px;
+    font-size: 50px;
 
 }
+
+.star {
+    margin-top: 40px;
+    margin-right: -3px;
+    color: #fca11e;
+    font-size: 22px;
+}
+
+.card-text {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.gerechtinfo {
+    margin-top: 50px;
+}
+
+.information {
+    display: inline;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
+
+.pagenumbers {
+    margin-top: 50px;
+    margin-left: 1100px;
+}
+
+.square {
+    height: 10px;
+    padding: 8px 10px 8px 10px;
+    margin-left: -4px;
+    background: #fff;
+    border: 2px solid rgba(100, 92, 92, 0.5);
+    color: #666;
+    text-align: center;
+    font: 16px Arial, sans-serif;
+    display: inline;
+}
+
+.logofooter {
+    width: 130px ;
+    height: auto ;
+    position: absolute;
+    margin-left: 200px;
+    margin-top: 150px;
+}
+
 
 .footer {
     padding-left: 300px;
     padding-top: 50px;
-    margin-top: 100px;
+    margin-top: 60px;
     height: 360px;
     width: 90%;
     background-color: #EB8D1F;
     color: white;
     margin-left: 100px;
-
 }
-

@@ -140,7 +140,7 @@ class recept {
             $prijs_totaal = $prijs_totaal + $prijsIngredient;               
 
         }
-        return($prijs_totaal);
+        return(substr($prijs_totaal, 0, -2));
     }
 
     private function berekenCalorie($recept_id) {
