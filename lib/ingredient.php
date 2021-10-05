@@ -31,11 +31,14 @@ class ingredient{
                 "artikel_id" => $artikel["id"],
                 "recept_id" => $row["recept_id"],
                 "verpakking"=>$artikel["verpakking"],
+                "afbeelding"=>$artikel["afbeelding"],
                 
                 "naam"=>$artikel["naam"],
+                "omschrijving"=>$artikel["omschrijving"],
                 "prijs" =>$artikel["prijs"],
                 "calorie" =>$artikel["calorie"],
                 "hoeveelheid" => $row["hoeveelheid"],
+                "eenheid" => $row['eenheid']
             ];  
 
 

@@ -50,43 +50,57 @@
 				</div>
 			</div>
 
-<div class="col-md-12" style="margin-right: -140px;">
-	<div class="card" style=" width: 1000px; height: 605px">
-		<div class="container">
-			<ul class="nav nav-tabs">
 
-				<li class="active">
-					<h1 class="nav-item pills">
-						<a class="active" data-toggle="tab" href="#ingredienten" style="color:#6f8723">Ingrediënten</a>
-					</h1>
-				</li>
-				<li class="nav-item">
-					<h1 class="pills">
-						<a data-toggle="tab" href="#bereidingswijze" style="color:#6f8723">Bereidingswijze</a>
-					</h1>
-				</li>
-				<li class="nav-item">
-					<h1 class="pills">
-						<a data-toggle="tab" href="#opmerkingen" style="color:#6f8723">Opmerkingen</a>
-					</h1>
-				</li>
-			</ul>
+<div class="col-md-12">
+	<div class="card" style=" width: 1000px; height: 605px; overflow-y: scroll;">
+		<ul class="nav nav-tabs sticky-top" style="background-color: white; border-radius: 50px 50px 0 0;">
+			<li class="nav-item">
+				<a class="nav-link active" href="#ingredienten" data-toggle="tab"><h1 class="pills">Ingredienten</h1></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link " href="#bereidingswijze" data-toggle="tab"><h1 class="pills">Bereidingswijze</h1></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link " href="#opmerkingen" data-toggle="tab"><h1 class="pills">Opmerkingen</h1></a>
+			</li>
+		</ul>
 
-			<div class="tab-content">
-				<div id="ingredienten" class="tab-pane fade show active">
-					<h3>{{recept.verpakking}}</h3>
-					<p>Some content.</p>
-				</div>
-				<div id="bereidingswijze" class="tab-pane fade">
-					<h3>Menu 1</h3>
-					<p>Some content in menu 1.</p>
-				</div>
-				<div id="opmerkingen" class="tab-pane fade">
-					<h3>Menu 2</h3>
-					<p>Some content in menu 2.</p>
-				</div>
-				</div>
+<div class="tab-content">
+	
+		<div id="ingredienten" class="tab-pane fade active show ">
+			{% for ingredient in recept.ingredienten %}
+			<img class="ingredientimage" src="{{ingredient.afbeelding}}">
+			<div>
+			<h1 style="color:#6f8723; margin-top: 30px; margin-left: 130px;">{{ingredient.naam}}</h1>
+			<p style="margin-left: 130px;">{{ingredient.omschrijving}}</p>
+			<h5 style="display:inline; color:#6f8723; margin-left: 132px;">Hoeveelheid:</h5>
+			<p style="display: inline; margin-left: 10px; font-size: 15px; ">{{ingredient.hoeveelheid}}{{ingredient.eenheid}}</p>
 			</div>
+			{% endfor %}
+		</div>
+				
+	<div id="bereidingswijze" class="tab-pane fade ">
+	{% for bereidingen in recept.bereidingen %}
+	<ul style="width: 140px; height: 90px;">
+		<li class="stappen" >{{bereidingen.stap}}</li>
+	</ul>
+			<p style="margin-left: 180px; width: 500px; margin-top: -100px; margin-bottom: 40px; font-weight: 600">{{bereidingen.bereiding}}</p>
+	{% endfor %}
+	</div>
+
+	<div id="opmerkingen" class="tab-pane fade ">
+	{% for opmerkingen in recept.opmerkingen %}
+
+		<img class="userphoto" src="{{opmerkingen.afbeelding}}">
+		<h1 style="color:#6f8723; margin-left: 190px; margin-top: -100px;">{{opmerkingen.gebruikersnaam}}</h1>
+			<p style="margin-left: 190px; margin-bottom: 50px; font-weight:600">{{opmerkingen.opmerking}}</p>
+		
+			{% endfor %}
+	</div>
+</div>
+
+
+
 		</div>
 	</div>
 {% endfor %}

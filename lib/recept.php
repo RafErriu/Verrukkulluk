@@ -4,13 +4,13 @@ class recept {
 
     private $connectie;
     private $gerecht_info;
-    private $ingredient;
+    private $ingredienten;
     private $keukenType;
 
     public function __construct($db) {
         $this->connectie = $db->getConnectie();
         $this->gerecht_info = new gerecht_info($db);
-        $this->ingredient = new ingredient($db);
+        $this->ingredienten = new ingredient($db);
         $this->keukenType = new keukenType($db);
     }
 
@@ -115,7 +115,7 @@ class recept {
     }
 
     private function ophalenIngredienten($recept_id) {
-        $ingredienten = $this->ingredient->ophalenIngredient($recept_id);
+        $ingredienten = $this->ingredienten->ophalenIngredient($recept_id);
              return($ingredienten);
     }
 
