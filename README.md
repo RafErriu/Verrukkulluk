@@ -1,2 +1,2 @@
 <img src="assets/img/verrukkulluk-logo.png" width="430">
-# Verrukkelluk
+<h1>Verrukkulluk</h1>
