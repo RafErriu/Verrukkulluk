@@ -27,12 +27,14 @@
 .word1 {
      Display: inline;
      margin-right: 120px; 
-     font-size: 60px
+     font-size: 60px;
+     color: #DC3439;
 }
 
 .word2 {
     Display: inline;
-    font-size: 60px
+    font-size: 60px;
+    color: #DC3439;
 }
 
 .word1:hover, .word2:hover {
@@ -373,4 +375,34 @@
     border: 6px solid #EB8D1F;
 }
 
+.boodschaphoto {
+    height: 120px;
+    width: 120px;
+    margin-left: 30px;
+    position: absolute;
+}
 
+.aantal {
+    color: grey;
+    margin-left: 500px;
+    margin-top: -50px;
+    font-size: 30px;
+    border: solid lightgrey 2px;
+    border-radius: 5%;
+    width: 100px;
+    text-align: center;
+}
+
+.trash {
+    margin-top: -50px;
+    margin-left: 220px;
+    font-size: 30px;
+    position: absolute;
+    color: #DC3439 ;
+    transition: transform .2s;
+}
+
+.trash:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}

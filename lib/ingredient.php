@@ -35,6 +35,7 @@ class ingredient{
                 
                 "naam"=>$artikel["naam"],
                 "omschrijving"=>$artikel["omschrijving"],
+                "materiaal"=>$artikel["materiaal"],
                 "prijs" =>$artikel["prijs"],
                 "calorie" =>$artikel["calorie"],
                 "hoeveelheid" => $row["hoeveelheid"],

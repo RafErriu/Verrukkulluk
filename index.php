@@ -22,10 +22,16 @@ $recept = new recept($db);
 $boodschappen = new boodschappen($db);
 $ingredient = new ingredient($db);
 $gerecht_info = new gerecht_info($db);
+$user = new User($db);
+$artikel = new artikel($db);
 //$gerecht = new gerecht($db);
+//$data = $ingredient->ophalenIngredient(24);
+//var_dump($data);
 
 $recept_id = isset($_GET['recept_id']) ? $_GET["recept_id"]: "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
+$user_id = isset($_GET['user_id']) ? $_GET['user_id']: "6";
+$artikel_id = isset($_GET['artikel_id']) ? $_GET['artikel_id']: "";
 
 switch($action) {
 
@@ -37,20 +43,30 @@ switch($action) {
     }
 
     case "detailpagina": {
-
-    
+        
         $data = $recept->ophalenRecept($recept_id);
         $template = 'detailpagina.html.twig';
         $title = "detailpagina";
         break;
     }
 
-    case "boodschapen": {
-        $data = $recept->ophalenRecept($recept_id);
+    case "boodschappen": {
+        
+        $data = $boodschappen->ophalenBoodschappen($user_id);
         $template = 'boodschappen.html.twig';
-        $title = 'boodschappen';
+        $title = "boodschappen";
         break;
     }
+
+    case "boodschappenToevoegen":
+        $boodschappen ->boodschappenToevoegen($recept_id, $user_id);
+        break;
+
+    case "verwijderenArtikel": 
+        $artikel_id = $_POST['artikel_id'];
+        $boodschappen ->verwijderenArtikel($user_id, $artikel_id);
+        break;
+    
 }
 
 $template = $twig->load($template);

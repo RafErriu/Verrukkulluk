@@ -6,33 +6,38 @@
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
     {# Dit is commentaar #}
-<html>
-<head>
-<link href="css/style.css" rel="stylesheet">
-<script src="https://kit.fontawesome.com/20c8c8d263.js" crossorigin="anonymous"></script>
-</head>
-</html>
+
 
 {# Print #}
 
 {# Loop #}
 
 <div class="row">
-		<div class="col-md-12" style="margin-right: -140px;">
-			<div class="card">
-			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
+		<div class="col-md-12" style="margin-right: -140px; ">
+			<div class="card boodschappenlijst" style="height: 1211px; width: 1000px; overflow-y: scroll;">			
 			<div class="card-block">	
+            <h1 style="color: #6f8723; margin-left: 30px; margin-top: 30px; font-size: 80px;">Boodschappen</h1>
+                <div>
+                {% for boodschappen in data %}
+                <div>
+                    <img class="boodschaphoto" src="{{boodschappen.afbeelding}}">
+                     <h1 style="color:#6f8723;  margin-bottom: 170px; margin-left: 170px; margin-top: 100px;">{{boodschappen.naam}}</h1>
+                     <p style="margin-left: 170px; margin-top: -160px">{{boodschappen.omschrijving}}</p>
+                     
+                </div>
+                <div style="margin-top: -70px;">
+                <p class="aantal">{{boodschappen.aantal}}</p>
+                <i class="fas fa-euro-sign fa-lg" style="margin-left: 650px; margin-top: -50px; color: #DC3439; font-size: 35px"></i>
+                <p style="margin-left: 680px;  margin-top: -33px; position: absolute; font-size: 25px; font-weight: 500; ">{{boodschappen.prijs * boodschappen.aantal}},-</p>
+                <a href="index.php?action=verwijderenArtikel"><i class="fas fa-trash trash"></i></a>
+                </div>
+                {% endfor %}
+                </div>
 		</div>
         </div>
         </div>
-            <div class="col-md-12" style="margin-right: -140px;">
-			<div class="card">
-			<img class="card-img-top" alt="Thumbnail" src="{{record.foto}}" style="width: 100%; height: 250px; object-fit: cover;">
-			<div class="card-block">    
-        </div>
-        </div>
-        </div>
-   		</div>
+         
+</div>
 
 {% endblock %}
 
