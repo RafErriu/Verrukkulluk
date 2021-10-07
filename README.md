@@ -1,2 +1,2 @@
-![alt text](assets/img/verrukkulluk-logo.png =100x "Title")
+<img src="assets/img/verrukkulluk-logo.png" width="48">
 # Verrukkelluk
