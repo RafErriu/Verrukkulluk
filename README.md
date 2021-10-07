@@ -1,4 +1,4 @@
-<img src="assets/img/logo-v2.png">
+<img src="assets/img/banner-v1.png">
 <h1>Verrukkulluk</h1>
 De website Verrukkulluk is door mijn ontwikkeld voor een project van Educom. Op deze receptenpagina wordt aan de hand van verschillende functies en technieken een samenhangend concept geëtaleerd waar front-end en back-end methodes samen tot een geheel product komen.
 
