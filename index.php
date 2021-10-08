@@ -51,22 +51,38 @@ switch($action) {
     }
 
     case "boodschappen": {
-        
         $data = $boodschappen->ophalenBoodschappen($user_id);
         $template = 'boodschappen.html.twig';
         $title = "boodschappen";
         break;
     }
 
-    case "boodschappenToevoegen":
-        $boodschappen ->boodschappenToevoegen($recept_id, $user_id);
-        break;
+    case "boodschappenToevoegen": {
 
-    case "verwijderenArtikel": 
-        $artikel_id = $_POST['artikel_id'];
-        $boodschappen ->verwijderenArtikel($user_id, $artikel_id);
+        $data = $boodschappen->ophalenBoodschappen($user_id);
+        $boodschappen ->boodschappenToevoegen($recept_id, $user_id);
+        $template = 'boodschappen.html.twig';
+        $title = "boodschappenToevoegen";
         break;
+    }
     
+    case "verwijderenArtikel": {
+
+        $data = $boodschappen->ophalenBoodschappen($user_id);
+        $boodschappen ->verwijderenArtikel($user_id, $artikel_id);
+        $template = 'boodschappen.html.twig';
+        $title = "verwijderenArtikel";
+        break;
+    }
+
+    case "verwijderenLijst": {
+        $data = $boodschappen->ophalenBoodschappen($user_id);
+        $boodschappen ->verwijderenLijst($user_id);
+        $template = 'boodschappen.html.twig';
+        $title = "verwijderenLijst";
+        break;
+    }
+
 }
 
 $template = $twig->load($template);

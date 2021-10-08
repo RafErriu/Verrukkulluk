@@ -1,3 +1,4 @@
+
 .logo {
     z-index: 10;
     position: absolute;
@@ -29,13 +30,19 @@
      margin-right: 120px; 
      font-size: 60px;
      color: #DC3439;
+
 }
 
 .word2 {
     Display: inline;
     font-size: 60px;
     color: #DC3439;
+
 }
+
+a:hover {
+    text-decoration: none;
+  }
 
 .word1:hover, .word2:hover {
     color: #fce3ba;
@@ -199,6 +206,10 @@
     padding: 0px;
 }
 
+.smullen:hover {
+    background-color: #e9a4a7;;
+}
+
 
 .card {
     margin-left: 80px;
@@ -321,7 +332,7 @@
 }
 
 .oplijst:hover {
-    background-color: #fd484e ;
+    background-color: #e9a4a7 ;
 }
 
 .heart {
@@ -375,6 +386,15 @@
     border: 6px solid #EB8D1F;
 }
 
+.boodschaptitle {
+    color: #6f8723; 
+    background-color:white; 
+    margin-left: -30px; 
+    margin-top: 20px; 
+    font-size: 80px;
+    padding-left: 40px;
+}
+
 .boodschaphoto {
     height: 120px;
     width: 120px;
@@ -405,4 +425,20 @@
 .trash:hover {
     transform: scale(1.5);
     cursor: pointer;
+}
+
+.line {
+    border-bottom: 5px dotted #DC3439 ;
+    width: 1000px;
+    height: 5px;
+    margin-top: -10px;
+    position: absolute;
+    margin-right: 40px;
+}
+
+.totaal {
+    margin-top: 100px;
+    margin-left: 30px;
+    font-size: 60px;
+    color: #b31615 ;
 }

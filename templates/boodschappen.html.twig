@@ -15,9 +15,11 @@
 <div class="row">
 		<div class="col-md-12" style="margin-right: -140px; ">
 			<div class="card boodschappenlijst" style="height: 1211px; width: 1000px; overflow-y: scroll;">			
-			<div class="card-block">	
-            <h1 style="color: #6f8723; margin-left: 30px; margin-top: 30px; font-size: 80px;">Boodschappen</h1>
+			<div class="card-block" >	
+            <h1 class="sticky-top boodschaptitle" >Boodschappen</h1>
                 <div>
+                
+                {% set boodschappen_totaal = 0 %}
                 {% for boodschappen in data %}
                 <div>
                     <img class="boodschaphoto" src="{{boodschappen.afbeelding}}">
@@ -25,13 +27,23 @@
                      <p style="margin-left: 170px; margin-top: -160px">{{boodschappen.omschrijving}}</p>
                      
                 </div>
+                {% set som_boodschappen = boodschappen.prijs * boodschappen.aantal %}
+                {% set boodschappen_totaal = boodschappen_totaal + som_boodschappen %}
                 <div style="margin-top: -70px;">
                 <p class="aantal">{{boodschappen.aantal}}</p>
                 <i class="fas fa-euro-sign fa-lg" style="margin-left: 650px; margin-top: -50px; color: #DC3439; font-size: 35px"></i>
-                <p style="margin-left: 680px;  margin-top: -33px; position: absolute; font-size: 25px; font-weight: 500; ">{{boodschappen.prijs * boodschappen.aantal}},-</p>
-                <a href="index.php?action=verwijderenArtikel"><i class="fas fa-trash trash"></i></a>
+                <p style="margin-left: 680px;  margin-top: -33px; position: absolute; font-size: 25px; font-weight: 500; ">{{som_boodschappen}},-</p>
+                <a href="index.php?user_id=6&artikel_id={{boodschappen.artikel_id}}&action=verwijderenArtikel"><i class="fas fa-trash trash"></i></a>
                 </div>
                 {% endfor %}
+                </div>
+
+                <div>
+                <div class="line"></div>
+                <h1 class="totaal">Totaal</h1>
+                <i class="fas fa-euro-sign fa-lg" style="margin-left: 650px; margin-top: -50px; color: #DC3439; font-size: 35px"></i>
+                 <p style="margin-left: 680px;  margin-top: -33px; position: absolute; font-size: 25px; font-weight: 500; ">{{boodschappen_totaal}},-</p>
+                 <a href="index.php?user_id=6&action=verwijderenLijst"><i class="fas fa-trash trash"></i></a>
                 </div>
 		</div>
         </div>

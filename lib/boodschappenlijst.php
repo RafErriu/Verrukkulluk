@@ -29,7 +29,7 @@ class boodschappen {
                 "omschrijving"=>$artikel["omschrijving"],
                 "materiaal"=>$artikel["materiaal"],
                 "verpakking"=>$artikel["verpakking"],
-                "prijs"=>$artikel["prijs"],
+                "prijs"=>$artikel["prijs"] / 100,
                 "calorie"=>$artikel["calorie"],
                 "afbeelding"=>$artikel["afbeelding"],
               
@@ -89,11 +89,15 @@ class boodschappen {
 
         $sql = "INSERT INTO boodschappen(artikel_id, user_id, aantal) VALUES ($artikel_id, $user_id, $totaalVerpakkingen)";
         $result = mysqli_query($this->connectie, $sql);
-
     }
 
     public function verwijderenArtikel($user_id, $artikel_id) {
         $sql = "DELETE FROM boodschappen WHERE user_id = $user_id AND artikel_id = $artikel_id";
+        $result = mysqli_query($this->connectie, $sql);
+    }
+
+    public function verwijderenLijst($user_id) {
+        $sql = "DELETE FROM boodschappen WHERE user_id = $user_id";
         $result = mysqli_query($this->connectie, $sql);
     }
     
