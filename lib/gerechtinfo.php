@@ -33,7 +33,8 @@ class gerecht_info {
                $user = $this->ophalenUser_Gerecht($row['user_id']);
                $gerecht_info[] = [
                    "id" => $row["id"],
-                          
+                    
+                   "user_id"=>$row["user_id"],
                    "gebruikersnaam"=>$user["gebruikersnaam"],
                    "email"=>$user["email"],
                    "afbeelding"=>$user["afbeelding"],
@@ -44,7 +45,15 @@ class gerecht_info {
                    "opmerking"=>$row["opmerking"]
            ];
             } else {
-            $gerecht_info[] = $row;
+            $gerecht_info[] = [
+              
+                "id" => $row ["id"],
+                "user_id"=>$row["user_id"],
+                "recept_id"=>$row["recept_id"],
+                "record_type"=>$row["record_type"],
+                "cijfer"=>$row["cijfer"],
+                "opmerking"=>$row["opmerking"]            
+            ];
             } 
         }
         return($gerecht_info);
@@ -54,7 +63,6 @@ class gerecht_info {
         $this->verwijderenFavoriet($recept_id, $user_id, $record_type);
         $sql = "INSERT INTO gerecht_info (recept_id, user_id, record_type) VALUES ($recept_id, $user_id, 'F')";
         $result = mysqli_query($this-> connectie, $sql);
-        echo "gelukt";
     }
     
 

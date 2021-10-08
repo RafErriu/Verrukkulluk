@@ -46,7 +46,18 @@
 							<h1 style="font-size: 40px; color:white">Op Lijst</h1>
 							</a>
 							</button>
-							<i class="far fa-heart fa-3x heart"></i>
+							<a href="index.php?recept_id={{recept.id}}&user_id=6&record_type=F&action=favoriet">
+					
+								{% if recept.favorieten  %}
+									<a href="index.php?recept_id={{recept.id}}&user_id=6&record_type=F&action=favorietVerwijderen">
+									<i class="fas fa-heart fa-3x heart"></i>
+									</a>
+
+								{% else %}
+									<a href="index.php?recept_id={{recept.id}}&user_id=6&record_type=F&action=favorietToevoegen">
+									<i class="far fa-heart fa-3x heart"></i>
+								{% endif %}
+					
 						</div>
 					</div>
 				</div>

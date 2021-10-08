@@ -22,12 +22,13 @@ $recept = new recept($db);
 $boodschappen = new boodschappen($db);
 $ingredient = new ingredient($db);
 $gerecht_info = new gerecht_info($db);
-$user = new User($db);
+$user = new user($db);
 $artikel = new artikel($db);
 //$gerecht = new gerecht($db);
 //$data = $ingredient->ophalenIngredient(24);
 //var_dump($data);
 
+$record_type = isset($_GET["record_type"]) ? $_GET["record_type"]: "";
 $recept_id = isset($_GET['recept_id']) ? $_GET["recept_id"]: "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $user_id = isset($_GET['user_id']) ? $_GET['user_id']: "6";
@@ -59,28 +60,51 @@ switch($action) {
 
     case "boodschappenToevoegen": {
 
-        $data = $boodschappen->ophalenBoodschappen($user_id);
         $boodschappen ->boodschappenToevoegen($recept_id, $user_id);
-        $template = 'boodschappen.html.twig';
+        $data = $boodschappen->ophalenBoodschappen($user_id);
+
         $title = "boodschappenToevoegen";
+        $template = 'boodschappen.html.twig';
         break;
     }
     
     case "verwijderenArtikel": {
 
-        $data = $boodschappen->ophalenBoodschappen($user_id);
         $boodschappen ->verwijderenArtikel($user_id, $artikel_id);
+        $data = $boodschappen->ophalenBoodschappen($user_id);
+
         $template = 'boodschappen.html.twig';
         $title = "verwijderenArtikel";
         break;
     }
 
     case "verwijderenLijst": {
-        $data = $boodschappen->ophalenBoodschappen($user_id);
         $boodschappen ->verwijderenLijst($user_id);
+        $data = $boodschappen->ophalenBoodschappen($user_id);
+
         $template = 'boodschappen.html.twig';
         $title = "verwijderenLijst";
         break;
+    }
+
+    case "favorietToevoegen": {
+
+        $gerecht_info ->toevoegenFavoriet($recept_id, $user_id, $record_type);
+        $data = $recept->ophalenRecept($recept_id);
+
+        $template = 'detailpagina.html.twig';
+        $title = "favorietToevoegen";
+        break;
+    }
+
+    case "favorietVerwijderen": {
+        
+        $gerecht_info -> verwijderenFavoriet($recept_id, $user_id, $record_type);
+        $data = $recept->ophalenRecept($recept_id);
+        
+
+        $template = 'detailpagina.html.twig';
+        $title = "favorietVerwijderen";
     }
 
 }
