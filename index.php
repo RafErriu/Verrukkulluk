@@ -25,8 +25,8 @@ $gerecht_info = new gerecht_info($db);
 $user = new user($db);
 $artikel = new artikel($db);
 //$gerecht = new gerecht($db);
-//$data = $ingredient->ophalenIngredient(24);
-//var_dump($data);
+// $data = $recept->ophalenBereidingen(22, 'B');
+// var_dump($data);
 
 $record_type = isset($_GET["record_type"]) ? $_GET["record_type"]: "";
 $recept_id = isset($_GET['recept_id']) ? $_GET["recept_id"]: "";

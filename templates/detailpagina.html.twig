@@ -93,11 +93,11 @@
 		</div>
 				
 	<div id="bereidingswijze" class="tab-pane fade ">
-	{% for bereidingen in recept.bereidingen %}
+	{% for bereiding in recept.bereidingen %}
 	<ul style="width: 140px; height: 90px;">
-		<li class="stappen" >{{bereidingen.stap}}</li>
+		<li class="stappen" >{{bereiding.stap}}</li>
 	</ul>
-			<p style="margin-left: 180px; width: 500px; margin-top: -100px; margin-bottom: 40px; font-weight: 600">{{bereidingen.bereiding}}</p>
+			<p style="margin-left: 180px; width: 500px; margin-top: -100px; margin-bottom: 40px; font-weight: 600">{{bereiding.bereiding}}</p>
 	{% endfor %}
 	</div>
 

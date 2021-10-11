@@ -109,9 +109,9 @@ class recept {
             return($opmerkingen);
     }
 
-    private function ophalenBereidingen($recept_id) {
-        $bereiding = $this->gerecht_info->ophalenInfoType($recept_id, 'B');
-            return($bereiding);
+    public function ophalenBereidingen($recept_id) {
+        $bereidingen = $this->gerecht_info->ophalenInfoType($recept_id, 'B');
+            return($bereidingen);
     }
 
     private function ophalenIngredienten($recept_id) {

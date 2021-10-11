@@ -52,7 +52,9 @@ class gerecht_info {
                 "recept_id"=>$row["recept_id"],
                 "record_type"=>$row["record_type"],
                 "cijfer"=>$row["cijfer"],
-                "opmerking"=>$row["opmerking"]            
+                "opmerking"=>$row["opmerking"],           
+                "bereiding"=>$row["bereiding"],
+                "stap"=>$row["stap"],
             ];
             } 
         }
