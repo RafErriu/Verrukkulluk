@@ -35,6 +35,6 @@ De ASD wordt gebruikt om te kijken welke functies in relatie staan met elkaar, e
 <br>
 <img src="assets/screenshots/ASD.png">
 <br>
-<img src="assets/screenshots/ASD.png">
+<img src="assets/screenshots/ASD2.png">
 <h6>*Zie de map 'Modellering' voor de volledige diagrammen.</h6>
 
