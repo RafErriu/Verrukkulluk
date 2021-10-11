@@ -1,170 +1,179 @@
 <html lang="nl">
-<head>
+	<head>
 
-    <title>Het is verrukkuluk! :: {{ TITEL }} </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css" />
+		<title>Het is verrukkuluk! ::
+			{{ TITEL }}
+		</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css"/>
 
-    <script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
-    <script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+
+		<script type="text/javascript" language="javascript" src="assets/jquery/jquery-3.5.1.js"></script>
+		<script type="text/javascript" language="javascript" src="assets/bootstrap/js/bootstrap.js"></script>
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+	</head>
 </html>
 <body>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-		<div class="menu">
-			<img alt="logomenu" src="assets/logo-v2.png" class="logomenu">
-			<div class="text">
-			<h1 class="word1" style="">Mijn Favorieten</h1>
-			<a href="index.php?action=boodschappen"><h1 class="word2" style="text-decoration: none;">Mijn Boodschappenlijst</h1></a>
-			</div>
-		</div>
-			<div class="carousel slide" id="carousel-35539">
-				<ol class="carousel-indicators">
-					<li data-slide-to="0" data-target="#carousel-35539" class="active">
-					</li>
-					<li data-slide-to="1" data-target="#carousel-35539">
-					</li>
-					<li data-slide-to="2" data-target="#carousel-35539">
-					</li>
-                    <li data-slide-to="3" data-target="#carousel-35539">
-					</li>
-				</ol>
-                
-			<div>
-
-				<div class="carousel-inner">
-					<a  href="index.php?action=homepage">
-                	<img alt="logo" src="assets/logo-v2.png" class="logo">
-					</a>
-                    <div class="search">
-                       <form class="form-inline";>
-					   		<i class="fas fa-search toggle"></i>
-						<input class="form-control zoekbar" type="text" placeholder="Zoeken"/> 
-				       </form>
-             </div>
-            
-			{#Begin Dropdown Button#}
-			
-			<div class="dropdown">
-				<i class="fas fa-bars"></i>
-				<script>
-				 $(document).ready(function(){
-      				$(".dropdown").click(function(){
-         				$(".menu").slideDown();
-        					event.stopPropagation();	 
-					});
-	
-					$("html").click(function(){
-         				$(".menu").slideUp();
-						 
-					});
-				 });
-   			    </script>
-			</div>
-			{#Einde Dropdown Button#}
-
-					<div class="carousel-item active">
-						<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap First" src="assets/vernon-raineil-cenzon-I2uJU-5ZIGI-unsplash.jpg">
-                    </div>
-					<div class="carousel-item">
-                    	<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap Second" src="assets/photo-1622004270371-a25f54baef0a.jpg">					</div>
-					<div class="carousel-item">
-                    	<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap Third" src="assets/brooke-lark-W9OKrxBqiZA-unsplash.jpg"></div>
-                    	<div class="carousel-item">
-                    	<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap Fourth" src="assets/ella-olsson-KPDbRyFOTnE-unsplash.jpg">					</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="menu">
+					<img alt="logomenu" src="assets/logo-v2.png" class="logomenu">
+					<div class="text">
+						<h1 class="word1" style="">Mijn Favorieten</h1>
+						<a href="index.php?action=boodschappen">
+							<h1 class="word2" style="text-decoration: none;">Mijn Boodschappenlijst</h1>
+						</a>
 					</div>
-				</div> 
-            </div>
-		</div>
-	</div>
+				</div>
+				<div class="carousel slide" id="carousel-35539">
+					<ol class="carousel-indicators">
+						<li data-slide-to="0" data-target="#carousel-35539" class="active"></li>
+						<li data-slide-to="1" data-target="#carousel-35539"></li>
+						<li data-slide-to="2" data-target="#carousel-35539"></li>
+						<li data-slide-to="3" data-target="#carousel-35539"></li>
+					</ol>
 
-	<div class="row">
-		<div class="col-md-4">
-			<div class="agenda">
-				<h1 style= "text-align:center; font-size: 80px; color: white;">
-					Agenda
-				</h1>
-				<ul class="list">
-				
-					<h1 class="keuken"><i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1><p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
-					<h1 class="keuken"><i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1><p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
-					<h1 class="keuken"><i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1><p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
-					<h1 class="keuken"><i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1><p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
-					<h1 class="keuken"><i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1><p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
-				</ul>
+					<div>
+
+						<div class="carousel-inner">
+							<a href="index.php?action=homepage">
+								<img alt="logo" src="assets/logo-v2.png" class="logo">
+							</a>
+							<div class="search">
+								<form class="form-inline" ;>
+									<i class="fas fa-search toggle"></i>
+									<input class="form-control zoekbar" type="text" placeholder="Zoeken"/>
+								</form>
+							</div>
+
+							{#Begin Dropdown Button#}
+
+							<div class="dropdown">
+								<i class="fas fa-bars"></i>
+								<script>
+									$(document).ready(function () {
+										$(".dropdown").click(function () {
+										$(".menu").slideDown();
+										event.stopPropagation();
+										});
+
+										$("html").click(function () {
+										$(".menu").slideUp();
+
+										});
+										});
+								</script>
+							</div>
+							{#Einde Dropdown Button#}
+
+							<div class="carousel-item active">
+								<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap First" src="assets/vernon-raineil-cenzon-I2uJU-5ZIGI-unsplash.jpg">
+							</div>
+							<div class="carousel-item">
+								<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap Second" src="assets/photo-1622004270371-a25f54baef0a.jpg">
+							</div>
+							<div class="carousel-item">
+								<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap Third" src="assets/brooke-lark-W9OKrxBqiZA-unsplash.jpg"></div>
+							<div class="carousel-item">
+								<img class="mx-auto" style="height:750px; width: 1650px" alt="Carousel Bootstrap Fourth" src="assets/ella-olsson-KPDbRyFOTnE-unsplash.jpg">
+							</div>
+						</div>
+					</div>
 			</div>
 
-			<form role="form" class="form">
-				<div class="form-group">
-					<h1 style="text-align:center; font-size: 80px; color: white;">Login</h1>
-					<label for="exampleInputEmail1">
-						<p class= "forminfo">Email</p>
-					</label>
-					<input type="email" class="form-control" id="exampleInputEmail1">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="agenda">
+					<h1 style="text-align:center; font-size: 80px; color: white;">
+						Agenda
+					</h1>
+					<ul class="list">
+
+						<h1 class="keuken">
+							<i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1>
+						<p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
+						<h1 class="keuken">
+							<i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1>
+						<p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
+						<h1 class="keuken">
+							<i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1>
+						<p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
+						<h1 class="keuken">
+							<i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1>
+						<p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
+						<h1 class="keuken">
+							<i class="far fa-calendar-alt bullet"></i>Vegetarisch koken</h1>
+						<p class="agendapunt">Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee</p>
+					</ul>
 				</div>
-				<div class="form-group">
 
-					<label for="exampleInputPassword1">
-						<p class= "forminfo">Wachtwoord</p>
-					</label>
-					<input type="password" class="form-control" id="exampleInputPassword1">
+				<form role="form" class="form">
+					<div class="form-group">
+						<h1 style="text-align:center; font-size: 80px; color: white;">Login</h1>
+						<label for="exampleInputEmail1">
+							<p class="forminfo">Email</p>
+						</label>
+						<input type="email" class="form-control" id="exampleInputEmail1">
+					</div>
+					<div class="form-group">
+
+						<label for="exampleInputPassword1">
+							<p class="forminfo">Wachtwoord</p>
+						</label>
+						<input type="password" class="form-control" id="exampleInputPassword1">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary login">
+							<h1 style="font-size: 55px; ">Login</h1>
+						</button>
+					</div>
+				</form>
+			</div>
+
+
+			{#Hier komt BLock#}
+			<div class="col-md-8"> {% block content %}{% endblock %}
 				</div>
-				<div class="form-group">
-				<button type="submit" class="btn btn-primary login">
-					<h1 style="font-size: 55px; ">Login</h1>
-				</button>
-                </div>
-			</form>
+				{#Hier eindigt Block#}
+			</div>
+
+			<div class="pagenumbers">
+				<p class="square">1</p>
+				<p class="square">2</p>
+				<p class="square">3</p>
+				<p class="square">4</p>
+				<p class="square">5</p>
+				<p class="square">6</p>
+				<p class="square">7</p>
+				<p class="square">8</p>
+				<p class="square">9</p>
+			</div>
 		</div>
-    
 
-		{#Hier komt BLock#}
-	<div class="col-md-8"> 
-        {% block content %}
-        {% endblock %}
-	</div> 
-		{#Hier eindigt Block#}
-</div>
 
-<div class="pagenumbers">
-<p class="square">1</p>
-<p class="square">2</p>
-<p class="square">3</p>
-<p class="square">4</p>
-<p class="square">5</p>
-<p class="square">6</p>
-<p class="square">7</p>
-<p class="square">8</p>
-<p class="square">9</p>
-</div>
-
-<img src="assets/verrukkulluk-pay-off.png" class="logofooter">
-<div class="footer">
-  <div class="row">
-		<div class="col-md-12">
-
-			<address>
-				 <h1 style="font-size: 100px;">Contact</h1><br>Verrukkulluk.nl<br>Poststraat 2b<br>Sittard<br>info@verrukkulluk.nl
-			</address>
+		<div class="row">
+			<img src="assets/verrukkulluk-pay-off.png" class="logofooter">
+			<div class="footer">
+				<div class="col-md-12">
+					<address>
+						<h1 style="font-size: 100px;">Contact</h1><br>Verrukkulluk.nl<br>Poststraat 2b<br>Sittard<br>info@verrukkulluk.nl
+					</address>
+				</div>
+			</div>
+	
 		</div>
-	</div>
-</div>
-
 
 </div>
-</body>
+	</body>

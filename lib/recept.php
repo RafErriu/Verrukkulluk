@@ -67,6 +67,8 @@ class recept {
                 'uitleg' => $row['uitleg'],
                 'keuken' => $keuken,
                 'type' => $type,
+                'soortK' => $keuken['soort'],
+                'soortT' => $type['soort'],
 
                 "bereidingen" => $bereidingen,
                 "opmerkingen" => $opmerkingen,
@@ -84,7 +86,7 @@ class recept {
         return($totaal_recept);
      }
     
-    private function ophalenKeuken($keuken_id) {
+    public function ophalenKeuken($keuken_id) {
          $keuken = $this->keukenType->ophalenKeukenType($keuken_id);
          return($keuken);
      }

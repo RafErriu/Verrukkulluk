@@ -21,12 +21,25 @@
 							<p class="information">{{recept.calorie_totaal}}</p>
 						</div>
 
+
+						
 						<div class="row">
+						
 							<div class="col-md-8">
 								<h1 class="card-title-detail" ;>
 									{{ recept.titel }}
 								</h1>
+								<div style="width: 450px;">
+								<h1 style="display: inline; font-size: 38px; margin-left:30px; color:#6f8723;">
+								Keuken:</h1>
+								<p class="keukentype">{{ recept.soortK }}</p>
+
+								<h1 style="display: inline; font-size: 38px; margin-left:30px; color:#6f8723;">
+								Type:</h1>
+								<p class="keukentype">{{ recept.soortT }}</p>
+								</div>
 							</div>
+							
 							<div class="col-md-4">
 								{% for i in 1..5 %}
 									{% if loop.index <= recept.gemiddelde_waardering %}
@@ -40,12 +53,27 @@
 						<div class="uitleg">
 						{{recept.uitleg}}
 						</div>
-						<div >
+						<div style="position: relative" class="">
+						<button type="submit" class="btn waardering" data-toggle="dropdown">
+							<h1 style="font-size: 40px; color:white">Waardering</h1>
+						</button>
+						  <div class="dropdown-menu" style="margin-left: 30px">
+    						<a class="dropdown-item" href="index.php?recept_id={{recept.id}}&cijfer=1&record_type=W&action=waardering"><i class="fas fa-star sterW"></i></a>
+    						<a class="dropdown-item" href="index.php?recept_id={{recept.id}}&cijfer=2&record_type=W&action=waardering"><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i></a>
+    						<a class="dropdown-item" href="index.php?recept_id={{recept.id}}&cijfer=3&record_type=W&action=waardering"><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i></a>
+	   						<a class="dropdown-item" href="index.php?recept_id={{recept.id}}&cijfer=4&record_type=W&action=waardering"><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i></a>
+							<a class="dropdown-item" href="index.php?recept_id={{recept.id}}&cijfer=5&record_type=W&action=waardering"><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i><i class="fas fa-star sterW"></i></a>
+  							</div>
+						</div>
+
+						<div>
 							<button type="submit" class="btn btn-primary oplijst">
 							<a href="index.php?recept_id={{recept.id}}&user_id=6&action=boodschappenToevoegen">
 							<h1 style="font-size: 40px; color:white">Op Lijst</h1>
 							</a>
 							</button>
+
+
 							<a href="index.php?recept_id={{recept.id}}&user_id=6&record_type=F&action=favoriet">
 					
 								{% if recept.favorieten  %}
@@ -93,11 +121,11 @@
 		</div>
 				
 	<div id="bereidingswijze" class="tab-pane fade ">
-	{% for bereiding in recept.bereidingen %}
+	{% for bereidingen in recept.bereidingen %}
 	<ul style="width: 140px; height: 90px;">
-		<li class="stappen" >{{bereiding.stap}}</li>
+		<li class="stappen" >{{bereidingen.stap}}</li>
 	</ul>
-			<p style="margin-left: 180px; width: 500px; margin-top: -100px; margin-bottom: 40px; font-weight: 600">{{bereiding.bereiding}}</p>
+			<p style="margin-left: 180px; width: 500px; margin-top: -100px; margin-bottom: 40px; font-weight: 600">{{bereidingen.bereiding}}</p>
 	{% endfor %}
 	</div>
 

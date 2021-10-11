@@ -24,15 +24,19 @@ $ingredient = new ingredient($db);
 $gerecht_info = new gerecht_info($db);
 $user = new user($db);
 $artikel = new artikel($db);
+$keukenType = new keukenType($db);
+
 //$gerecht = new gerecht($db);
-// $data = $recept->ophalenBereidingen(22, 'B');
+// $data = $recept->ophalenKeuken(4);
 // var_dump($data);
+
 
 $record_type = isset($_GET["record_type"]) ? $_GET["record_type"]: "";
 $recept_id = isset($_GET['recept_id']) ? $_GET["recept_id"]: "";
 $action = isset($_GET["action"]) ? $_GET["action"] : "homepage";
 $user_id = isset($_GET['user_id']) ? $_GET['user_id']: "6";
 $artikel_id = isset($_GET['artikel_id']) ? $_GET['artikel_id']: "";
+$cijfer = isset($_GET["cijfer"]) ? $_GET["cijfer"]: "";
 
 switch($action) {
 
@@ -105,6 +109,17 @@ switch($action) {
 
         $template = 'detailpagina.html.twig';
         $title = "favorietVerwijderen";
+    }
+
+    
+    case "waardering": {
+
+        $gerecht_info ->toevoegenWaardering($recept_id, $cijfer, $record_type);
+        $data = $recept->ophalenRecept($recept_id);
+
+        $template = 'detailpagina.html.twig';
+        $title = "waardering";
+
     }
 
 }

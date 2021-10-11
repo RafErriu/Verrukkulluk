@@ -77,7 +77,6 @@ class gerecht_info {
         $this->verwijderenWaardering($recept_id, $cijfer, $record_type);
         $sql = "INSERT INTO gerecht_info (recept_id, cijfer, record_type) VALUES ($recept_id, $cijfer, 'W')";
         $result = mysqli_query($this-> connectie, $sql);
-        echo "gelukt";
     }
 
     public function verwijderenWaardering($recept_id, $cijfer, $record_type) {
