@@ -1,8 +1,8 @@
 <img src="assets/img/banner-v1.png">
 <h1>Verrukkulluk</h1>
-De website Verrukkulluk is door mijn ontwikkeld voor een project van Educom. Op deze receptenpagina wordt aan de hand van verschillende functies en technieken een samenhangend concept geëtaleerd waar front-end en back-end methodes samen tot een geheel product komen.
+De website Verrukkulluk is door mij ontwikkeld voor een project van Educom. Op deze receptenpagina wordt aan de hand van verschillende functies en technieken een samenhangend concept geëtaleerd waar front-end en back-end methodes samen tot een geheel product komen.
 <br><br>
-Het project is van te voren uitgewerkt met een ASD en ERD, aan de hand van deze is zorgvuldig een database opgebouwd waar aan de hand van verschillende functies in PHP recepten, boodschappen en andere gegevens kunnen toegevoegd of verwijderd. 
+Het project is van te voren uitgewerkt met een ASD en ERD, aan de hand van deze is zorgvuldig een database opgebouwd waar aan de hand van verschillende functies in PHP recepten, boodschappen en andere gegevens kunnen worden toegevoegd of verwijderd. 
 <br><br>
 <img src="assets/screenshots/homepage.png">
 <img src="assets/screenshots/both.png">
